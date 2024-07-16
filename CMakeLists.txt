@@ -1,0 +1,28 @@
+cmake_minimum_required(VERSION 3.24)
+
+
+if (DEFINED ENV{GNURISCV_TOOLCHAIN_PATH})
+    SET(TOOLCHAIN_DIR $ENV{GNURISCV_TOOLCHAIN_PATH})
+else ()
+    message(FATAL_ERROR "Please set GNURISCV_TOOLCHAIN_PATH environment value")
+endif ()
+
+SET(TOOLCHAIN_BIN_DIR ${TOOLCHAIN_DIR}/bin)
+SET(CMAKE_C_COMPILER "${TOOLCHAIN_BIN_DIR}/riscv32-elf-gcc" CACHE INTERNAL "")
+SET(CMAKE_CXX_COMPILER "${TOOLCHAIN_BIN_DIR}/riscv32-elf-g++" CACHE INTERNAL "")
+SET(CMAKE_ASM_COMPILER "${TOOLCHAIN_BIN_DIR}/riscv32-elf-gcc" CACHE INTERNAL "")
+#SET(ENV{VERBOSE} 1)
+SET(APP_NAME hpm_playground)
+project(hpm_playground)
+
+set(ENV{HPM_SDK_BASE} ${PROJECT_SOURCE_DIR}/hpm_sdk/)
+set(ENV{HPM_SDK_TOOLCHAIN_VARIANT} nds-gcc)
+set(BOARD hpm6200evk)
+
+
+find_package(hpm-sdk REQUIRED HINTS $ENV{HPM_SDK_BASE})
+
+
+set(CMAKE_C_STANDARD 11)
+
+sdk_app_src(main.c)
