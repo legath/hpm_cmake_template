@@ -24,7 +24,7 @@ endif ()
 
 
 if (USE_MOTORCTL)
-    set(CONFIG_MOTORCTRL 1)
+    set(CONFIG_MOTORCTRL_V2 1)
     message(STATUS "Using Motor control")
 endif ()
 
