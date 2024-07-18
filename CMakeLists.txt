@@ -33,6 +33,17 @@ if (USE_ADC)
     message(STATUS "Using ADC")
 endif ()
 
+if (USE_SHELL)
+    set(CONFIG_CHERRYSH 1)
+    set(CONFIG_CHERRYSH_INTERFACE  uart)
+    message(STATUS "Using shell (CherrySH) with interface ${CONFIG_CHERRYSH_INTERFACE}")
+endif ()
+
+if (USE_USB)
+    set(CONFIG_CHERRYUSB 1)
+    message(STATUS "Using usb (CherryUSB)")
+endif ()
+
 SET(APP_NAME hpm_playground)
 project(hpm_playground)
 
