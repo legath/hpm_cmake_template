@@ -74,3 +74,7 @@ sdk_app_src(main.c)
 if (CFG_DSPLIB)
     sdk_ld_options(-L$ENV{HPM_SDK_BASE}/middleware/hpm_math/nds_dsp/gcc/)
 endif ()
+
+if (CFG_GEN_IDE)
+generate_ide_projects()
+endif ()
