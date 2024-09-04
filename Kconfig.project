@@ -1,0 +1,4 @@
+config MY_BRILLIANT_FEATURE
+    bool "Brilliant feature"
+    help
+        Brilliant feature description

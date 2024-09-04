@@ -6,6 +6,8 @@
  */
 
 #include <stdio.h>
+#include <autoconf.h>
+
 #include "board.h"
 #include "hpm_debug_console.h"
 
@@ -20,6 +22,11 @@ int main(void)
     board_timer_create(LED_FLASH_PERIOD_IN_MS, board_led_toggle);
 
     printf("hello world\n");
+
+#ifdef CONFIG_MY_BRILLIANT_FEATURE
+    printf("My brilliant feature enabled \n");
+#endif
+
     while(1)
     {
         u = getchar();

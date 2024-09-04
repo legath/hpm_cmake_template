@@ -98,6 +98,7 @@ if (CONFIG_DSPLIB)
     sdk_ld_options(-L$ENV{HPM_SDK_BASE}/middleware/hpm_math/nds_dsp/gcc/)
 endif ()
 
+sdk_inc(${AUTOCONF_DIR})
 #if (CFG_GEN_IDE)
 #generate_ide_projects()
 #endif ()

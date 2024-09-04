@@ -62,3 +62,5 @@ config RTT_INTERFACE
     bool "Segger RTT"
     help
         Segger RTT support enable
+
+source "Kconfig.project"
