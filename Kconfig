@@ -1,0 +1,64 @@
+mainmenu "Project Configuration"
+
+choice
+     prompt "Board"
+
+
+config BOARD_HPM5300EVK
+     bool "HPM5300EVK"
+
+config BOARD_HPM6200EVK
+     bool "HPM6200EVK"
+
+config BOARD_HPM6E00EVK
+     bool "HPM6E00EVK"
+
+endchoice
+
+
+config DSPLIB
+    bool "Andes DSP lib"
+    help
+        Andes DSP lib
+
+config MOTORCTL
+    bool "HPM Motor Control Framework"
+    help
+        HPM Motor Control Framework
+
+config ADC
+    bool "ADC Support"
+    help
+        ADC Support
+
+config USB
+    bool "CherryUSB"
+    help
+        CherryUSB using
+
+config SHELL
+    bool "Shell (CherrySH enable)"
+    help
+        CherryUSB using
+
+choice
+     prompt "Shell interface"
+     depends on SHELL
+
+config SHELL_INTERFACE_UART
+     bool "UART"
+
+config SHELL_INTERFACE_USB
+     bool "USB"
+
+endchoice
+
+config FREERTOS_ENABLE
+    bool "FreeRTOS"
+    help
+        FreeRTOS using
+
+config RTT_INTERFACE
+    bool "Segger RTT"
+    help
+        Segger RTT support enable
